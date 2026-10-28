@@ -19,6 +19,7 @@ struct StatusPicker: View {
                     Text(tab.rawValue.capitalized).tag(tab)
                 }
             }
+            .sensoryFeedback(.impact(weight: .medium), trigger: status)
             .pickerStyle(.segmented)
             .background(
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
@@ -28,7 +29,6 @@ struct StatusPicker: View {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .stroke(hairline, lineWidth: 1)
             )
-
         }
     }
 }

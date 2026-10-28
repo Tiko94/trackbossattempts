@@ -13,6 +13,14 @@ struct BossCardView: View {
                         .frame(width: 80, height: 80)
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                } else {
+                    Image(systemName: "shield.slash")
+                        .font(.system(size: 34, weight: .light))
+                        .foregroundStyle(.white.opacity(0.35))
+                        .frame(width: 80, height: 80)
+                        .background(Color.white.opacity(0.07))
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                 }
                 VStack(alignment: .leading, spacing: 4) {
                     Text(boss.name)

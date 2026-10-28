@@ -83,6 +83,7 @@ struct AttemptsStepper: View {
         .buttonStyle(PressableStyle())
         .disabled(!enabled)
         .sensoryFeedback(.impact(weight: .light), trigger: attempts)
+        .buttonStyle(.haptic)
     }
 }
 

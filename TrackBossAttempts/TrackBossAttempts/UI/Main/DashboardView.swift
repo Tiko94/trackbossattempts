@@ -10,6 +10,8 @@ struct DashboardView: View {
 
     @State private var searchText: String = ""
     @State private var showingAddSheet = false
+    @State private var showStatsSheet = false
+
     @State private var activeFilter: BossFilter = .all
     @State private var sortOption: BossSort = .newest
 
@@ -59,9 +61,11 @@ struct DashboardView: View {
                 VStack(spacing: 0) {
                     DashboardHeader(
                         showingAddSheet: $showingAddSheet,
+                        showingStats: $showStatsSheet,
                         searchText: $searchText,
                         sortOption: $sortOption,
-                        showSearchBar: horizontalSizeClass == .regular
+                        showSearchBar: horizontalSizeClass == .regular,
+                        bosses: bosses
                     )
                     ScrollView {
                         VStack(spacing: 20) {
@@ -125,6 +129,7 @@ struct DashboardView: View {
                     activeFilter = (activeFilter == .inProgress) ? .all : .inProgress
                 }
             }
+            .sensoryFeedback(.impact(weight: .medium), trigger: activeFilter)
     }
 
     private var totalDefeatedCard: some View {
@@ -139,5 +144,6 @@ struct DashboardView: View {
                     activeFilter = (activeFilter == .defeated) ? .all : .defeated
                 }
             }
+            .sensoryFeedback(.impact(weight: .medium), trigger: activeFilter)
     }
 }

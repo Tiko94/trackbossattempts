@@ -22,6 +22,7 @@ struct TrackBossAttemptsApp: App {
     var body: some Scene {
         WindowGroup {
             DashboardView()
+                .background(KeyboardDismissView())
         }
         .modelContainer(sharedModelContainer)
         .onChange(of: scenePhase) { _, phase in
