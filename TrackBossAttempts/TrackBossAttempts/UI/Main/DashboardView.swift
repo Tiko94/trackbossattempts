@@ -90,6 +90,12 @@ struct DashboardView: View {
                                             }
                                             .buttonStyle(.plain)
                                                .contextMenu {
+                                                   if boss.status == .defeated {
+                                                       ShareLink(item: boss.shareImage, preview: boss.sharePreview) {
+                                                           Label("Share", systemImage: "square.and.arrow.up")
+                                                       }
+                                                   }
+
                                                    Button("Delete", systemImage: "trash", role: .destructive) {
                                                        withAnimation(.snappy) {
                                                            modelContext.delete(boss)

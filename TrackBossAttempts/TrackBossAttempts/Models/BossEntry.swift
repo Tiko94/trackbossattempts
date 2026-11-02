@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
 
-enum BossStatus: String, Codable, CaseIterable, Identifiable {
+enum BossStatus: String, Codable, CaseIterable, Identifiable, Sendable {
     case notStarted = "Not Started"
     case inProgress = "In Progress"
     case defeated = "Defeated"
@@ -18,13 +18,13 @@ enum BossStatus: String, Codable, CaseIterable, Identifiable {
 }
 
 @Model
-final class BossEntry {
-    var gameTitle: String
-    var name: String
-    var attempts: Int
-    var statusRawValue: String
-    var notes: String
-    var createdAt: Date
+final class BossEntry: Sendable {
+    var gameTitle: String = ""
+    var name: String = ""
+    var attempts: Int = 0
+    var statusRawValue: String = BossStatus.notStarted.rawValue
+    var notes: String = ""
+    var createdAt: Date = Date()
 
     @Attribute(.externalStorage) var imageData: Data?
 
@@ -45,5 +45,19 @@ final class BossEntry {
         self.notes = notes
         self.createdAt = Date()
         self.imageData = imageData
+    }
+}
+
+extension BossEntry {
+    var shareImage: BossShareImage {
+        BossShareImage(boss: self)
+    }
+
+    var sharePreview: SharePreview<Image, Never> {
+        if let imageData, let ui = UIImage(data: imageData) {
+            return SharePreview(name, image: Image(uiImage: ui))
+        } else {
+            return SharePreview(name, image: Image(systemName: "shield.slash"))
+        }
     }
 }

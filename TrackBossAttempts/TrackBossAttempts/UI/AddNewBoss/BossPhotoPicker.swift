@@ -39,7 +39,13 @@ struct BossPhotoPicker: View {
         .accessibilityLabel(imageData == nil ? "Add boss photo" : "Change boss photo")
         .task(id: pickerItem) {
             guard let pickerItem else { return }
-            imageData = try? await pickerItem.loadTransferable(type: Data.self)
+            guard let original = try? await pickerItem.loadTransferable(type: Data.self) else { return }
+
+            let compressed = await Task.detached(priority: .userInitiated) {
+                await ImageCompressor.compressedJPEG(from: original)
+            }.value
+
+            imageData = compressed ?? original
         }
     }
 
@@ -60,15 +66,4 @@ struct BossPhotoPicker: View {
         }
         .frame(width: avatarSize, height: avatarSize)
     }
-}
-
-// MARK: - Preview
-
-#Preview {
-    @Previewable @State var data: Data?
-
-    return BossPhotoPicker(imageData: $data)
-        .padding()
-        .background(Color(.systemBackground))
-        .preferredColorScheme(.dark)
 }

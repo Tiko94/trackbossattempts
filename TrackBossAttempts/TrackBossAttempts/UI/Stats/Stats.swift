@@ -29,7 +29,7 @@ struct Stats: View {
 
             ScrollView {
                 VStack(spacing: 16) {
-                    Text("Top 5 Hardest Bosses")
+                    Text("Top \(topFiveBosses.count) Hardest Bosses")
                         .font(.system(size: 28, weight: .bold))
                         .foregroundStyle(.white)
 

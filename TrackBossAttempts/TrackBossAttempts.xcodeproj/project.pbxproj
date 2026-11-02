@@ -56,8 +56,17 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Models/BossEntry.swift,
+				Models/BossShareCard.swift,
+				Models/BossShareImage.swift,
 			);
 			target = 67024362303365BC00BE0C16 /* BossStatsWidgetExtensionExtension */;
+		};
+		67B67419309533C9001485DF /* Exceptions for "TrackBossAttempts" folder in "TrackBossAttempts" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 679C53D8302507EE008A700F /* TrackBossAttempts */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -73,6 +82,7 @@
 		679C53DB302507EE008A700F /* TrackBossAttempts */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				67B67419309533C9001485DF /* Exceptions for "TrackBossAttempts" folder in "TrackBossAttempts" target */,
 				6702437C30336A6400BE0C16 /* Exceptions for "TrackBossAttempts" folder in "BossStatsWidgetExtensionExtension" target */,
 			);
 			path = TrackBossAttempts;
@@ -459,10 +469,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TrackBossAttempts/TrackBossAttempts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = C2ZK73UV36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrackBossAttempts/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Track Boss Attempts";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -476,7 +487,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TrackBossAttempts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -500,10 +511,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TrackBossAttempts/TrackBossAttempts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = C2ZK73UV36;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrackBossAttempts/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Track Boss Attempts";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -517,7 +529,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.TrackBossAttempts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

@@ -198,6 +198,11 @@ struct BossDetailView: View {
 
     private var moreMenu: some View {
         Menu {
+            if boss.status == .defeated {
+                ShareLink(item: boss.shareImage, preview: boss.sharePreview) {
+                    Label("Share", systemImage: "square.and.arrow.up")
+                }
+            }
             Button("Reset Attempts", systemImage: "arrow.counterclockwise") {
                 boss.attempts = 0
                 boss.status = .notStarted
